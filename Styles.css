@@ -1,0 +1,22 @@
+.economicaButton{
+	-fx-background-color: rgb(175, 16, 24);
+    -fx-text-fill:white;
+    -fx-border-color:black;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+.turistaButton{
+	-fx-background-color: rgb(44, 99, 143);
+	-fx-text-fill:black;
+    -fx-border-color:black;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.altaButton{
+	-fx-background-color: rgb(7, 119, 82);
+	-fx-text-fill:black;
+    -fx-border-color:black;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
