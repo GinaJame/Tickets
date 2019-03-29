@@ -1,22 +1,26 @@
 .economicaButton{
-	-fx-background-color: rgb(175, 16, 24);
+	-fx-background-color: #6e0f0f;
     -fx-text-fill:white;
-    -fx-border-color:black;
     -fx-border-radius: 8;
     -fx-background-radius: 8;
 }
 .turistaButton{
-	-fx-background-color: rgb(44, 99, 143);
+	-fx-background-color: #0f286e;
 	-fx-text-fill:black;
-    -fx-border-color:black;
     -fx-border-radius: 8;
     -fx-background-radius: 8;
 }
 
 .altaButton{
-	-fx-background-color: rgb(7, 119, 82);
+	-fx-background-color: #0f6e1f;
 	-fx-text-fill:black;
-    -fx-border-color:black;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.asientoTomado{
+	-fx-background-color: black;
+	-fx-text-fill:white;
     -fx-border-radius: 8;
     -fx-background-radius: 8;
 }
