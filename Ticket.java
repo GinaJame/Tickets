@@ -12,6 +12,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.layout.BorderPane;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+import javafx.event.ActionEvent;
 
 public class Ticket extends Application {
     private GridPane gridpane1 = new GridPane();
@@ -88,7 +89,9 @@ public class Ticket extends Application {
         Button boton2 = new Button("Regresar");
         boton2.setOnAction(e-> regresar());
         /*boton2.setOnAction(e-> regresar(scene1));*/
-        asientosbu.setOnAction(e-> Seleccionado(asientosbu,gridpane1.getRowIndex(asientosbu)));
+        //asientosbu.setOnAction(e-> Seleccionado(asientosbu,gridpane1.getRowIndex(asientosbu)));
+        
+        
         bp.setTop(label1);
         bp.setCenter(gridpane1);
         bp.setBottom(boton2);
@@ -99,6 +102,14 @@ public class Ticket extends Application {
     public void AgregarBotones(char lugar){
         for(int i=0;i<20;i++){
             asientosbu = new Button(""+lugar+i);
+            asientosbu.setOnAction(new EventHandler<ActionEvent>(){
+            @Override
+            public void handle (ActionEvent event){
+                Button select = (Button) event.getSource();
+                Seleccionado(select,gridpane1.getRowIndex(select));
+            }
+            
+        }); 
             switch (lugar){
                 case 'A':
                     gridpane1.add(asientosbu,1,i);
@@ -128,9 +139,10 @@ public class Ticket extends Application {
         }
     }
     public void Seleccionado(Button b, int row){
+            System.out.println("Gina es chida");
+            
             if(row<5){
                 asientosbu.getStyleClass().remove("altaButton");
-                System.out.println("Clase Alta");
             }
             if(row>4&&row<15){
                 asientosbu.getStyleClass().remove("turistaButton");
