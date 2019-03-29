@@ -25,7 +25,8 @@ public class Ticket extends Application {
     private VBox panel1 = new VBox();
     private Scene scene1 = new Scene(panel1,300,250);
     private Scene scene2 = new Scene(bp, 300, 1000);
-    
+    private String tipo;
+    private ComboBox tboleto;
     public static void main(String[] args){
         Application.launch(args);
     }
@@ -44,7 +45,7 @@ public class Ticket extends Application {
         texto1.setPromptText("Nombre");
         HBox v1= new HBox(label,texto1);
         Label tipo= new Label("Tipo de boleto");
-        ComboBox tboleto = new ComboBox<>();
+        tboleto = new ComboBox<>();
         tboleto.getItems().add("Primera Clase");
         tboleto.getItems().add("Clase Turista");
         tboleto.getItems().add("Clase Económica");
@@ -62,23 +63,27 @@ public class Ticket extends Application {
     
     public void boleto(){
         nom= texto1.getText();
+        tipo=(String) tboleto.getValue();
+        System.out.println(tipo);
         System.out.println(nom);
         Label label1 = new Label("Elige tu asiento");
 
-        Rectangle ac1= new Rectangle(10, 10);
-        Label etiqueta1=new Label("economico");
-        ac1.getStyleClass().add("economicaButton");
-        HBox acot1=new HBox(ac1,etiqueta1);
+        Rectangle ac3= new Rectangle(10, 10);
+        ac3.setFill(Paint.valueOf("#0f6e1f"));
+        Label etiqueta3=new Label("primera");
+        HBox acot3=new HBox(ac3,etiqueta3);
 
         Rectangle ac2= new Rectangle(10, 10);
+        ac2.setFill(Paint.valueOf("#0f286e"));
         Label etiqueta2=new Label("turista");
-        ac1.getStyleClass().add("turistaButton");
         HBox acot2=new HBox(ac2,etiqueta2);
 
-        Rectangle ac3= new Rectangle(10, 10);
-        Label etiqueta3=new Label("primera");
-        ac1.getStyleClass().add("primeraButton");
-        HBox acot3=new HBox(ac3,etiqueta3);
+        Rectangle ac1= new Rectangle(10, 10);
+        ac1.setFill(Paint.valueOf("#6e0f0f"));
+        Label etiqueta1=new Label("economico");
+        HBox acot1=new HBox(ac1,etiqueta1);
+
+
 
 
         VBox acotaciones = new VBox(acot1,acot2,acot3);
@@ -141,17 +146,17 @@ public class Ticket extends Application {
         }
     }
     public void Seleccionado(Button b, int row){
-            System.out.println("Gina es chida");
             
-            if(row<5){
+            if(row<5&&(tipo=="Primera Clase")){
                 asientosbu.getStyleClass().remove("altaButton");
-            }
-            if(row>4&&row<15){
+            }else if(row>4&&row<15&&(tipo=="Clase Turista")){
                 asientosbu.getStyleClass().remove("turistaButton");
-            }
-            if(row>14){
+            }else if(row>14&&(tipo=="Clase Económica")){
                 asientosbu.getStyleClass().remove("economicaButton");
             
+            }else{
+                System.out.println("Elige de tu tipo de asiento");
+                
             }
             b.getStyleClass().add("asientoTomado"); 
             b.setText(nom);
