@@ -66,6 +66,7 @@ public class Ticket extends Application {
     public void boleto(){
         nom= texto1.getText();
         tipo=(String) tboleto.getValue();
+        if(tipo!=null){
         System.out.println(tipo);
         System.out.println(nom);
         Label label1 = new Label("Elige tu asiento");
@@ -102,6 +103,15 @@ public class Ticket extends Application {
         bp.setCenter(gridpane1);
         bp.setBottom(boton2);
         bp.setRight(acotaciones);
+        }
+        else{
+            Label error = new Label("FAVOR DE NO DEJAR LOS CAMPOS VACIOS");
+            bp.setTop(error);
+            Button botone = new Button("Llenar");
+            botone.setOnAction(e-> regresar());
+            bp.setBottom(botone);
+        }
+
         stage0.setScene(scene2);
         
     }
