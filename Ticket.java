@@ -27,6 +27,8 @@ public class Ticket extends Application {
     private Scene scene2 = new Scene(bp, 300, 1000);
     private String tipo;
     private ComboBox tboleto;
+    private Boolean click;
+    private Button s;
     public static void main(String[] args){
         Application.launch(args);
     }
@@ -95,9 +97,6 @@ public class Ticket extends Application {
         AgregarBotones('D');
         Button boton2 = new Button("Regresar");
         boton2.setOnAction(e-> regresar());
-        /*boton2.setOnAction(e-> regresar(scene1));*/
-        //asientosbu.setOnAction(e-> Seleccionado(asientosbu,gridpane1.getRowIndex(asientosbu)));
-        
         
         bp.setTop(label1);
         bp.setCenter(gridpane1);
@@ -146,21 +145,26 @@ public class Ticket extends Application {
         }
     }
     public void Seleccionado(Button b, int row){
-            
+        
             if(row<5&&(tipo=="Primera Clase")){
                 asientosbu.getStyleClass().remove("altaButton");
+                b.getStyleClass().add("asientoTomado"); 
+                b.setText(nom);
             }else if(row>4&&row<15&&(tipo=="Clase Turista")){
                 asientosbu.getStyleClass().remove("turistaButton");
+                b.getStyleClass().add("asientoTomado"); 
+                b.setText(nom);
             }else if(row>14&&(tipo=="Clase Económica")){
                 asientosbu.getStyleClass().remove("economicaButton");
+                b.getStyleClass().add("asientoTomado"); 
+                b.setText(nom);
             
             }else{
                 System.out.println("Elige de tu tipo de asiento");
                 
             }
-            b.getStyleClass().add("asientoTomado"); 
-            b.setText(nom);
     }
+
     
     public void regresar(){
         stage0.setScene(scene1);
