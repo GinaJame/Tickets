@@ -20,10 +20,11 @@ public class Ticket extends Application {
     private BorderPane bp = new BorderPane();
     private Button [][] asientos=new Button[20][4];
     private String nom;
-    Stage stage0 =  new Stage();
-    VBox panel1 = new VBox();
-    Scene scene1 = new Scene(panel1,300,250);
-    Scene scene2 = new Scene(bp, 300, 1000);
+    private Stage stage0 =  new Stage();
+    private TextField texto1;
+    private VBox panel1 = new VBox();
+    private Scene scene1 = new Scene(panel1,300,250);
+    private Scene scene2 = new Scene(bp, 300, 1000);
     
     public static void main(String[] args){
         Application.launch(args);
@@ -39,9 +40,8 @@ public class Ticket extends Application {
         
         stage0.setTitle("Autobus");
         Label label = new Label("¿Cuál es tu nombre?");
-        TextField texto1 = new TextField();
+        texto1 = new TextField();
         texto1.setPromptText("Nombre");
-        nom= texto1.getText();
         HBox v1= new HBox(label,texto1);
         Label tipo= new Label("Tipo de boleto");
         ComboBox tboleto = new ComboBox<>();
@@ -61,6 +61,8 @@ public class Ticket extends Application {
     }
     
     public void boleto(){
+        nom= texto1.getText();
+        System.out.println(nom);
         Label label1 = new Label("Elige tu asiento");
 
         Rectangle ac1= new Rectangle(10, 10);
